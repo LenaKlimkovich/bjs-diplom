@@ -18,6 +18,11 @@ router.post('/add', (request, response) => {
     return;
   }
 
+  if (amount === 0) {
+    response.json({ success: false, error: 'Невозможно добавить 0' });
+    return;
+  }
+
   if (amount < 0) {
     response.json({ success: false, error: 'Невозможно добавить отрицательное число' });
     return;
@@ -54,6 +59,11 @@ router.post('/transfer', (request, response) => {
   amount = Number.parseFloat(amount);
   if (Number.isNaN(amount)) {
     response.json({ success: false, error: 'Ошибка при переводе значения в число' });
+    return;
+  }
+
+   if (amount === 0) {
+    response.json({ success: false, error: 'Невозможно перевести 0' });
     return;
   }
 
@@ -100,7 +110,6 @@ router.post('/convert', (request, response) => {
     response.json({ success: false, error: 'Ошибка при переводе значения в число' });
     return;
   }
-
   if (fromAmount < 0) {
     response.json({ success: false, error: 'Невозможно конвертировать отрицательное число' });
     return;
