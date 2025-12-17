@@ -54,12 +54,13 @@ class MoneyManager {
   }
 
   setMessage(isSuccess, message) {
-    if (isSuccess) {
+    if (isSuccess === true) {
       this.errorMessageBlock.className = 'ui message fluid success';
+
     } else {
       this.errorMessageBlock.className = 'ui message fluid error';
+      this.errorMessageBlock.style.color = 'red';
     }
-
     this.errorMessageBlock.innerText = message;
     this.errorMessageBlock.style.display = 'block';
     setTimeout(() => { this.errorMessageBlock.style.display = 'none'; }, 5000);
