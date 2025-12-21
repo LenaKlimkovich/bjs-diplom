@@ -54,7 +54,7 @@ class MoneyManager {
   }
 
   setMessage(isSuccess, message) {
-    if (isSuccess) {
+    if (isSuccess === true) {
       this.errorMessageBlock.className = 'ui message fluid success';
        this.errorMessageBlock.style.color = 'green';
     } else {
