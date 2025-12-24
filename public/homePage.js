@@ -38,7 +38,7 @@ moneyM.addMoneyCallback = (data) => {
             ProfileWidget.showProfile(response.data);
             moneyM.setMessage(response.success, `Операция прошла успешно! Баланс пополнен на ${data.amount} ${data.currency} `);
         } else {
-            moneyM.setMessage(response.error, `К сожалению, не удалось пополнить Ваш баланс. Ошибка: ${response.error}`);
+            moneyM.setMessage(response.success, `К сожалению, не удалось пополнить Ваш баланс. Ошибка: ${response.error}`);
         }
     })
 }
@@ -50,7 +50,7 @@ moneyM.conversionMoneyCallback = (data) => {
             ProfileWidget.showProfile(response.data);
             moneyM.setMessage(response.success, `Конвертация прошла успешно! ${data.fromCurrency} конвертированы в ${data.targetCurrency} `);
         } else {
-            moneyM.setMessage(response.error, `К сожалению, не удалось конвертировать денежные средства. Ошибка: ${response.error}`);
+            moneyM.setMessage(response.success, `К сожалению, не удалось конвертировать денежные средства. Ошибка: ${response.error}`);
         }
     })
 }
@@ -61,7 +61,7 @@ moneyM.sendMoneyCallback = (data) => {
             ProfileWidget.showProfile(response.data);
             moneyM.setMessage(response.success, `Перевод ${data.amount} ${data.currency} в  ${data.to} выполнен!`);
         } else {
-            moneyM.setMessage(response.error, `К сожалению, не удалось перевести денежные средства. Ошибка: ${response.error}`);
+            moneyM.setMessage(response.success, `К сожалению, не удалось перевести денежные средства. Ошибка: ${response.error}`);
         }
         moneyM
     })
@@ -86,7 +86,7 @@ favourite.addUserCallback = (data) => {
             moneyM.updateUsersList(response.data)
             moneyM.setMessage(response.success, `${data.name} был успешно добавлен в список избранных`);
         } else {
-            moneyM.setMessage(response.error, `К сожалению, не удалось добавить ${data.name} в список избранных. Ошибка: ${response.error}`);
+            moneyM.setMessage(response.success, `К сожалению, не удалось добавить ${data.name} в список избранных. Ошибка: ${response.error}`);
         }
     })
 }
@@ -99,7 +99,7 @@ favourite.removeUserCallback = (data) => {
             moneyM.updateUsersList(response.data)
             moneyM.setMessage(response.success, `Пользователь ${data} был удален из списка избранных`);
         } else {
-            moneyM.setMessage(response.error, `К сожалению, не удалось удалить пользователя ${data} из списка избранных. Ошибка: ${response.error}`);
+            moneyM.setMessage(response.success, `К сожалению, не удалось удалить пользователя ${data} из списка избранных. Ошибка: ${response.error}`);
         }
     })
 } 
